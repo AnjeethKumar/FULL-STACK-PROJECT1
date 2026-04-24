@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFHL Hierarchy Studio</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header card">
+        <p class="eyebrow">SRM Full Stack Engineering Challenge</p>
+        <h1>BFHL Hierarchy Studio</h1>
+        <p>
+          Analyze directed relationships and instantly visualize tree hierarchies,
+          cycles, invalid entries, and duplicates.
+        </p>
+      </header>
+
+      <section class="input-section card">
+        <label for="edgesInput">Node relationships (comma-separated)</label>
+        <textarea
+          id="edgesInput"
+          rows="5"
+          placeholder="A->B, A->C, B->D, C->E"
+        ></textarea>
+        <div class="actions">
+          <button id="analyzeBtn" type="button">
+            <span id="btnText">Analyze Graph</span>
+            <span id="spinner" class="spinner hidden"></span>
+          </button>
+        </div>
+      </section>
+
+      <section id="errorBox" class="error-box hidden"></section>
+
+      <section class="summary-grid" id="summaryGrid">
+        <article class="metric card">
+          <h3>Total Trees</h3>
+          <p id="totalTrees">-</p>
+        </article>
+        <article class="metric card">
+          <h3>Total Cycles</h3>
+          <p id="totalCycles">-</p>
+        </article>
+        <article class="metric card">
+          <h3>Largest Tree Root</h3>
+          <p id="largestRoot">-</p>
+        </article>
+      </section>
+
+      <section class="badge-section card">
+        <h3>Invalid Entries</h3>
+        <div id="invalidBadges" class="badges"></div>
+        <h3>Duplicate Edges</h3>
+        <div id="duplicateBadges" class="badges"></div>
+      </section>
+
+      <section class="results card">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="hierarchiesTab">Hierarchies</button>
+          <button class="tab-btn" data-tab="rawJsonTab">Raw JSON</button>
+        </div>
+        <div id="hierarchiesTab" class="tab-content active">
+          <div id="hierarchiesContainer"></div>
+        </div>
+        <div id="rawJsonTab" class="tab-content">
+          <pre id="rawJsonOutput"></pre>
+        </div>
+      </section>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
